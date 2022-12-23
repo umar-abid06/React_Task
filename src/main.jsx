@@ -12,6 +12,7 @@ function renderRoutes(role) {
       return (
         <Routes>
           <Route
+            exact
             path="/admin/dashboard"
             element={<AdminDashboardPage />}
           ></Route>
@@ -36,7 +37,11 @@ function Main() {
     <div className="h-full">
       <div className="flex w-full">
         <div className="w-full">
-          <div className="page-wrapper w-full py-10 px-5">
+          <div
+            className={`page-wrapper w-full py-10 px-5 ${
+              state?.isAuthenticated ? "px-0 py-0" : ""
+            }`}
+          >
             {!state.isAuthenticated
               ? renderRoutes("none")
               : renderRoutes(state.role)}

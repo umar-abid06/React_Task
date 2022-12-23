@@ -27,7 +27,13 @@ const AdminLoginPage = () => {
 
   const onSubmit = async (data) => {
     let sdk = new MkdSDK();
+    let loginData = { ...data, role: "admin" };
+
     //TODO
+
+    const result = await sdk.login(loginData);
+    await console.log("result", result);
+    dispatch({ type: "LOGIN", payload: result });
   };
 
   return (

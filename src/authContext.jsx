@@ -4,18 +4,26 @@ import MkdSDK from "./utils/MkdSDK";
 export const AuthContext = React.createContext();
 
 const initialState = {
-  isAuthenticated: false,
+  isAuthenticated: true,
   user: null,
   token: null,
-  role: null,
+  role: "admin",
 };
 
 const reducer = (state, action) => {
   switch (action.type) {
     case "LOGIN":
       //TODO
+      localStorage.setItem(
+        "token",
+        JSON.stringify({ token: action.payload.token })
+      );
       return {
         ...state,
+        isAuthenticated: true,
+        user: action.payload.user_id,
+        token: action.payload.token,
+        role: action.payload.role,
       };
     case "LOGOUT":
       localStorage.clear();
