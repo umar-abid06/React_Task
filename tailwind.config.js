@@ -9,6 +9,7 @@ module.exports = {
       ...colors,
       main: "#9BFF00",
       logout: "#050505",
+      grayish: "#1D1D1D",
     },
   },
   plugins: [],

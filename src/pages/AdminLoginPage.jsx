@@ -32,7 +32,6 @@ const AdminLoginPage = () => {
     //TODO
 
     const result = await sdk.login(loginData);
-    await console.log("result", result);
     dispatch({ type: "LOGIN", payload: result });
   };
 
