@@ -33,6 +33,7 @@ const AdminLoginPage = () => {
 
     const result = await sdk.login(loginData);
     dispatch({ type: "LOGIN", payload: result });
+    navigate("/admin/dashboard");
   };
 
   return (
